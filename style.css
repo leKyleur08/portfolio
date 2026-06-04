@@ -233,15 +233,82 @@ li {
    6. SECTION CONTACT
 ------------------------------------------- */
 .contact-section {
-    padding: 80
+    padding: 80px 8%;
+    text-align: center;
 }
 
+.contact-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
 
+.contact-section p {
+    color: var(--gray);
+    margin-bottom: 40px;
+}
 
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: var(--primary-color);
+}
+
+.submit-button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.submit-button:hover {
+    opacity: 0.9;
+}
 
 /* -------------------------------------------
-   7. SECTION FOOTER
+   7. FOOTER & RESPONSIVE
 ------------------------------------------- */
+footer {
+    background-color: #111827;
+    color: var(--white);
+    text-align: center;
+    padding: 30px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px 5%;
+    }
+    .nav-links {
+        gap: 15px;
+        font-size: 0.9rem;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
 
 .gemini{
     color:white;
