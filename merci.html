@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Style rapide pour centrer le message de remerciement */
         .merci-container {
             height: 100vh;
             display: flex;
@@ -29,18 +28,25 @@
     </style>
 </head>
 <body>
-    <div class="merci-container">
-    <h1>🚀 Message bien reçu !</h1>
-    <p>Merci <span id="user-name" style="font-weight: 700; color: #4f46e5;">visiteur</span>, je te réponds dans les plus brefs délais.</p>
-    <a href="index.html" class="merci-btn">Retour au portfolio</a>
-</div>
 
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get('name');
-    if (name) {
-        document.getElementById('user-name').textContent = decodeURIComponent(name);
-    }
-</script>
+    <div class="merci-container">
+        <h1>🚀 Message bien reçu !</h1>
+        <!-- Le texte s'adaptera si un nom est trouvé, sinon il dira juste "Merci" -->
+        <p id="merci-texte">Merci, je te réponds dans les plus brefs délais.</p>
+        <a href="index.html" class="merci-btn">Retour au portfolio</a>
+    </div>
+
+    <script>
+        // 1. On récupère les paramètres de l'URL (?name=MonPrenom...)
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name'); // Correspond au name="name" de l'input
+
+        // 2. Si un nom existe et n'est pas vide, on personnalise le message
+        if (name && name.trim() !== "") {
+            const texteElement = document.getElementById('merci-texte');
+            texteElement.innerHTML = `Merci <span style="font-weight: 700; color: #4f46e5;">${decodeURIComponent(name)}</span>, je te réponds dans les plus brefs délais.`;
+        }
+    </script>
+
 </body>
 </html>
