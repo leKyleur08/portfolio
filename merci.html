@@ -36,15 +36,17 @@
     </div>
 
     <script>
-        // 1. On cherche les paramètres dans l'URL (ex: ?name=Matthew)
+        // 1. On analyse l'adresse de la page (URL) suite au renvoi de Web3Forms
         const params = new URLSearchParams(window.location.search);
+        
+        // 2. On récupère la valeur saisie dans le champ "name" du formulaire
         const name = params.get('name');
         
-        // 2. Si on trouve un nom, on l'affiche, sinon on met "à toi" par défaut
+        // 3. Si un nom est trouvé et valide, on l'affiche, sinon on met un texte poli par défaut
         if (name && name.trim() !== "" && name !== "{name}") {
             document.getElementById('user-name').textContent = decodeURIComponent(name);
         } else {
-            document.getElementById('user-name').textContent = "à toi";
+            document.getElementById('user-name').textContent = "Matthew";
         }
     </script>
 
