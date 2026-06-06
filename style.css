@@ -2,12 +2,15 @@
    1. VARIABLES & RESET
 ------------------------------------------- */
 :root {
-    --primary-color: #4f46e5;     /* Couleur d'accentuation (violet moderne) */
+    --primary-color: #4656e5;     /* Couleur d'accentuation (violet moderne) */
     --text-color: #1f2937;        /* Couleur du texte principal */
     --light-bg: #f9fafb;          /* Fond clair pour alterner */
     --white: #ffffff;
     --gray: #6b7280;
     --transition: all 0.3s ease;
+    --text-white: #f0f0f0;
+    --border-color: #8b96a7;
+    --text-muted: #000000;
 }
 
 * {
@@ -25,6 +28,9 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 a {
@@ -61,7 +67,6 @@ li {
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    font-family: var(--font-main);
     font-size: 0.9rem;
     font-weight: 500;
     text-decoration: none;
@@ -77,8 +82,9 @@ li {
 }
 
 .btn-primary:hover, .btn-primary:focus {
-    background-color: transparent;
-    border-color: var(--text-white);
+    background-color: #00a6ff;
+    border-color: var(--text-muted);
+    color:var(--text-muted);
 }
 
 /* -------------------------------------------
@@ -212,10 +218,27 @@ li {
 .project-image {
     height: 200px;
     width: 100%;
+    object-fit: contain; /* L'image s'affiche maintenant en ENTIER sans être rognée */
+    object-position: center; /* Elle reste parfaitement centrée */
+    background-color: #ffffff; /* Ajoute un fond blanc propre derrière le logo */
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.jeu {
+    object-fit: contain; /* Remplit magnifiquement la carte de manière responsive */
+    object-position: center; /* Reste centrée si l'écran bouge */
+    background-color: #000000;
+    padding: 0; /* Pas de marge pour que le jeu prenne tout l'espace disponible */
+}
+.jeu.scandi{
+    background-color: #0eb2db;
 }
 
 .project-info {
     padding: 25px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 200px);
 }
 
 .project-info h3 {
@@ -226,11 +249,14 @@ li {
     color: var(--gray);
     font-size: 0.95rem;
     margin-bottom: 20px;
+    flex-grow: 1;
 }
 
 .project-link {
     color: var(--primary-color);
     font-weight: 600;
+    align-self: flex-end; /* Aligne ce lien spécifique tout à droite */
+    margin-top: auto;
 }
 
 /* -------------------------------------------
@@ -279,7 +305,7 @@ li {
 /* ========================================== */
 .cv-banner {
     background: linear-gradient(135deg, rgba(55, 138, 221, 0.05), rgba(127, 119, 221, 0.05));
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--text-white);
     border-radius: 6px;
     padding: 40px;
     text-align: center;
@@ -358,6 +384,7 @@ footer {
     text-align: center;
     padding: 30px;
     font-size: 0.9rem;
+    margin-top: auto;
 }
 
 @media (max-width: 600px) {

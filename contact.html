@@ -10,18 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<script>
-function preparerRedirection() {
-    // 1. On récupère ce qui est écrit dans la case "Votre nom"
-    const nomSaisi = document.querySelector('input[name="name"]').value;
-    
-    // 2. Si la case n'est pas vide, on l'ajoute magiquement à la redirection
-    if(nomSaisi) {
-        const redirectInput = document.querySelector('input[name="redirect"]');
-        redirectInput.value = "https://leKyleur08.github.io/portfolio/merci.html?name=" + encodeURIComponent(nomSaisi);
-    }
-}
-</script>
 <body>
 
     <header class="navbar">
@@ -79,5 +67,16 @@ function preparerRedirection() {
         </div>
         <p>&copy; 2026 Matthew Hubert. Tous droits réservés.</p>
     </footer>
-    
+    <script>
+        function preparerRedirection() {
+            // 1. On récupère ce qui est écrit dans la case "Votre nom"
+            const nomSaisi = document.querySelector('input[name="name"]').value;
+        
+            // 2. Si la case n'est pas vide, on l'ajoute magiquement à la redirection
+            if(nomSaisi) {
+                const redirectInput = document.querySelector('input[name="redirect"]');
+                redirectInput.value = "https://leKyleur08.github.io/portfolio/merci.html?name=" + encodeURIComponent(nomSaisi);
+            }
+        }
+    </script>
 </body>
