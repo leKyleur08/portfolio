@@ -31,20 +31,20 @@
 
     <div class="merci-container">
         <h1>🚀 Message bien reçu !</h1>
-        <!-- Le texte s'adaptera si un nom est trouvé, sinon il dira juste "Merci" -->
-        <p id="merci-texte">Merci, je te réponds dans les plus brefs délais.</p>
+        <p>Merci <span id="user-name" style="font-weight: 700; color: #4f46e5;"></span>, je te réponds dans les plus brefs délais.</p>
         <a href="index.html" class="merci-btn">Retour au portfolio</a>
     </div>
 
     <script>
-        // 1. On récupère les paramètres de l'URL (?name=MonPrenom...)
-        const urlParams = new URLSearchParams(window.location.search);
-        const name = urlParams.get('name'); // Correspond au name="name" de l'input
-
-        // 2. Si un nom existe et n'est pas vide, on personnalise le message
-        if (name && name.trim() !== "") {
-            const texteElement = document.getElementById('merci-texte');
-            texteElement.innerHTML = `Merci <span style="font-weight: 700; color: #4f46e5;">${decodeURIComponent(name)}</span>, je te réponds dans les plus brefs délais.`;
+        // 1. On cherche les paramètres dans l'URL (ex: ?name=Matthew)
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name');
+        
+        // 2. Si on trouve un nom, on l'affiche, sinon on met "à toi" par défaut
+        if (name && name.trim() !== "" && name !== "{name}") {
+            document.getElementById('user-name').textContent = decodeURIComponent(name);
+        } else {
+            document.getElementById('user-name').textContent = "à toi";
         }
     </script>
 
